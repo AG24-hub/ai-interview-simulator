@@ -1,5 +1,5 @@
 import { supabase } from "../lib/supabase";
-const { createContext, useContext, useState, useEffect } = require("react");
+import { createContext, useContext, useState, useEffect } from 'react'
 
 //stores the authentication information globally
 const AuthContext = createContext({})
@@ -26,7 +26,7 @@ export const AuthProvider = ({children}) => {
     }, []);
 
     const signUp = async(email, password, name) => {
-        const {data, error} = await supabase.auth.SignUp({
+        const {data, error} = await supabase.auth.signUp({
             email,
             password, 
             options: {
