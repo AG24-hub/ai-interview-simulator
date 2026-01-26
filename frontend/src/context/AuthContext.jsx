@@ -1,4 +1,4 @@
-import { supabase } from "../lib/supabse";
+import { supabase } from "../lib/supabase";
 const { createContext, useContext, useState, useEffect } = require("react");
 
 //stores the authentication information globally
