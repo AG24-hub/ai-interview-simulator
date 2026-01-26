@@ -45,7 +45,7 @@ export const AuthProvider = ({children}) => {
     }
 
     const signOut = async() => {
-        const {error} = await supabase.auth.SignOut()
+        const {error} = await supabase.auth.signOut()
         return {error};
     }
 
