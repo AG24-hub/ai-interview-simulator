@@ -1,6 +1,11 @@
 const pdfParse = require('pdf-parse');
 const mammoth = require('mammoth');
 
+console.log('--- Debugging PDF-Parse ---');
+console.log('Type of pdfParse:', typeof pdfParse);
+console.log('Is pdfParse a function?:', typeof pdfParse === 'function');
+console.log('Available keys:', Object.keys(pdfParse));
+
 class ResumeParser {
     // Extract raw text from uploaded file buffer based on extension
     async extractText(file) {
@@ -9,8 +14,10 @@ class ResumeParser {
 
         try {
             if (ext === 'pdf') {
-                const data = await pdfParse(file.buffer);  //opens complex pdf strctures and extracts text characters
-                console.log("extraction done")
+                // The standard library is a direct function call
+                const data = await pdfParse(file.buffer); 
+                
+                console.log("PDF extraction successful");
                 return data.text;
             } else if (ext === 'docx') {
                 const result = await mammoth.extractRawText({ buffer: file.buffer });  //convert xml based word format into raw text
